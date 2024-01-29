@@ -1,0 +1,27 @@
+# Revised 1/29/24
+# This file needs to be named appropriately: <ICAO>_XMidiCtrl.toml. The way it is named now will not work!
+# You will also need to rename the include file templates, and change the config below to reflect this.
+# The includes then need to be stored in the Includes subdirectory.
+
+# This template config file retains the CL650's datarefs as an example of some of the things that can be done.
+# See the XMIDICtrl documentation for more examples (including onscreen output and other types of dataref usage)
+# labeling format: Layer | <Upper/Lower> | <Sublayer> | Input Name | CC range used
+
+title   = "rweseloh's XMIDICtrl config for the <AIRCRAFT>"
+version = "1.00"
+
+# Virtual devices
+[virtual_device]
+name	= "Virtual device"
+include	= ["template_gunfighter_l", "template_bravo"]
+
+
+# Behringer X-Touch Mini number 1
+[[device]]
+name       = "Behringer X-Touch Mini"
+include	   = "template_xtouch_1"
+port_in    = 0
+port_out   = 1
+
+# Uncomment if there is a dataref to use for the sublayer setting
+# sl_dataref = "CL650/pilot_seat"
