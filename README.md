@@ -8,9 +8,4 @@ I have personal preferences for my sim planes/hardware that others may not jive 
 
 Apologies to the original creators I rip the files from (usually Marco) if I miss some stuff I should be changing due to license terms or whatever. Let me know if you find something and I will fix it.
 
-## Config Structure (eventually, once I get everything set up and migrated)
 
-<addon_name>_master.toml  
-├ <addon_name>_Gunfighter_L.toml  
-├ <addon_name>_Bravo.toml  
-└ <addon_name>_xtouch_1.toml
