@@ -1,0 +1,91 @@
+# Revised 1/29/24
+# FOR THIS FILE TO WORK, YOU NEED TO include IT IN THE MASTER CONFIG
+
+# This file is intended for the VKB Gunfighter, left handed premium space combat grip
+# labeling format: <Sublayer> | Input Name
+
+#--------------------------------------------------------------------------------------------------------------------
+# mapping_in - configure datarefs and commands to trigger when buttons and knobs are used
+#--------------------------------------------------------------------------------------------------------------------
+mapping_in = [
+	# Trigger half
+		{ ch = 16, cc = 0, type = "cmd", command = "command/here" },
+  
+  	# Trigger full
+ 		{ ch = 16, cc = 1, type = "cmd", command = "command/here" },
+   
+   	# Upper Trigger Push
+		{ ch = 16, cc = 2, type = "cmd", command = "command/here" },
+  
+ 	# Upper Trigger Pull
+ 		{ ch = 16, cc = 3, type = "cmd", command = "command/here" },
+   
+ 	# Front Left Button
+ 		{ ch = 16, cc = 4, type = "cmd", command = "command/here" },
+   
+ 	# Pinkie Button
+ 		{ ch = 16, cc = 5, type = "cmd", command = "command/here" },
+   
+ 	# Left Hat Up
+ 		{ ch = 16, cc = 6, type = "cmd", command = "command/here" },
+   
+ 	# Left Hat Right
+ 		{ ch = 16, cc = 7, type = "cmd", command = "command/here" },
+   
+ 	# Left Hat Down
+ 		{ ch = 16, cc = 8, type = "cmd", command = "command/here" },
+   
+ 	# Left Hat Left
+ 		{ ch = 16, cc = 9, type = "cmd", command = "command/here" },
+   
+   # Left Hat Press
+ 		{ ch = 16, cc = 10, type = "cmd", command = "command/here" },
+   
+ 	# Center Hat Up
+ 		{ ch = 16, cc = 11, type = "cmd", command = "command/here" },
+   
+ 	# Center Hat Right
+ 		{ ch = 16, cc = 12, type = "cmd", command = "command/here" },
+   
+ 	# Center Hat Down
+ 		{ ch = 16, cc = 13, type = "cmd", command = "command/here" },
+   
+ 	# Center Hat Left
+ 		{ ch = 16, cc = 14, type = "cmd", command = "command/here" },
+   
+   # Center Hat Press
+ 		{ ch = 16, cc = 15, type = "cmd", command = "command/here" },
+   
+ 	# Right Hat Up
+ 		{ ch = 16, cc = 16, type = "cmd", command = "command/here" },
+   
+ 	# Right Hat Right
+ 		{ ch = 16, cc = 17, type = "cmd", command = "command/here" },
+   
+ 	# Right Hat Down
+ 		{ ch = 16, cc = 18, type = "cmd", command = "command/here" },
+   
+ 	# Right Hat Left
+ 		{ ch = 16, cc = 19, type = "cmd", command = "command/here" },
+   
+   	# NOTE: this grip does not have a "right hat press" as that toggles the hat between hat and axis mode
+
+ 	# Thumb Button (RED)
+ 		{ ch = 16, cc = 20, type = "cmd", command = "command/here" },
+   
+ 	# Thumb Hat Up
+ 		{ ch = 16, cc = 21, type = "cmd", command = "command/here" },
+   
+ 	# Thumb Hat Right
+ 		{ ch = 16, cc = 22, type = "cmd", command = "command/here" },
+   
+ 	# Thumb Hat Down
+ 		{ ch = 16, cc = 23, type = "cmd", command = "command/here" },
+   
+ 	# Thumb Hat Left
+ 		{ ch = 16, cc = 24, type = "cmd", command = "command/here" },
+   
+   	# Thumb Hat Press
+ 		{ ch = 16, cc = 25, type = "cmd", command = "command/here" },
+   
+]
