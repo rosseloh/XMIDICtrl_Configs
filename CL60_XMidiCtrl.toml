@@ -1,0 +1,280 @@
+# Revised 1/29/24 rweseloh
+#
+#	Label format: Layer | <Upper/Lower> | <Sublayer> | Input Name | <CC range> | Description
+#	some of these are evident from the config code, some need further explanation, hence the brackets.
+#	Where appropriate, labels are omitted for brevity (when obvious from the command, or when labeling a group)
+
+title   = "rweseloh's XMIDICtrl config for the Hot Start Challenger 650"
+version = "1.00"
+sl_dataref = "CL650/pilot_seat"	# "sublayer" for firing different cmds based on a dataref
+#===============================================================================
+#	Virtual devices
+#===============================================================================
+[virtual_device]
+name	= "Virtual device"
+	#-------------------------------------------------------------------------------
+	#	VKB Gunfighter Premium Space Combat Grip
+	#-------------------------------------------------------------------------------
+	mapping_in = [
+			{ ch = 16, cc = 0, type = "cmd", command = "CL650/contwheel/0/fd_sync" }, # SL 0 | Trigger half | PILOT YOKE FD SYNC
+			{ ch = 16, cc = 0, type = "cmd", command = "CL650/contwheel/1/fd_sync" }, # SL 1 | Trigger half | COPILOT YOKE FD SYNC
+			{ ch = 16, cc = 1, type = "cmd", command = "sim/none/none" }, # Trigger full | UNUSED
+			{ ch = 16, cc = 2, sl = "0", type = "cmd", command = "CL650/contwheel/0/ic" }, # SL 0 | Upper Trigger Push | PILOT YOKE INTERCOM
+			{ ch = 16, cc = 3, sl = "0", type = "cmd", command = "CL650/contwheel/0/rt" }, # SL 0 |  Upper Trigger Pull | PILOT YOKE RADIO PTT
+			{ ch = 16, cc = 2, sl = "1", type = "cmd", command = "CL650/contwheel/1/ic" }, # SL 1 | Upper Trigger Push | COPILOT YOKE INTERCOM
+			{ ch = 16, cc = 3, sl = "1", type = "cmd", command = "CL650/contwheel/1/rt" }, # SL 1 |  Upper Trigger Pull | COPILOT YOKE RADIO PTT
+			{ ch = 16, cc = 4, type = "cmd", command = "sim/operation/screenshot" }, # Front Left Button | TAKE SCREENSHOT
+			{ ch = 16, cc = 5, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim_disc" }, # SL 0 | Pinkie Button | PILOT YOKE STAB TRIM DISCO
+			{ ch = 16, cc = 5, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim_disc" }, # SL 1 | Pinkie Button | COPILOT YOKE STAB TRIM DISCO
+			{ ch = 16, cc = 6, type = "pnp", command_push = "CL650/checklist/restart_cur_checklist", command_pull = "CL650/checklist/restart_all_checklists" }, # Left Hat Up | RESTART CURRENT/ALL CHECKLIST
+			{ ch = 16, cc = 7, type = "cmd", command = "CL650/checklist/next_checklist" }, # Left Hat Right | NEXT CHECKLIST
+			{ ch = 16, cc = 8, type = "pnp", command_push = "CL650/checklist/check_item", command_pull = "CL650/checklist/skip_item" }, # Left Hat Down | CHECK/SKIP ITEM
+			{ ch = 16, cc = 9, type = "cmd", command = "CL650/checklist/prev_checklist" }, # Left Hat Left | PREVIOUS CHECKLIST
+			{ ch = 16, cc = 10, type = "cmd", command = "sim/none/none" }, # Left Hat Press | UNUSED
+			{ ch = 16, cc = 11, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim1_up" }, # SL 0 | Center Hat up | PILOT YOKE OUTBOARD TRIM SWITCH NOSE UP
+			{ ch = 16, cc = 11, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim2_up" }, # SL 0 | Center Hat up | PILOT YOKE INBOARD TRIM SWITCH NOSE UP
+			{ ch = 16, cc = 11, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim1_up" }, # SL 1 | Center Hat up | COPILOT YOKE OUTBOARD TRIM SWITCH NOSE UP
+			{ ch = 16, cc = 11, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim2_up" }, # SL 1 | Center Hat up | COPILOT YOKE INBOARD TRIM SWITCH NOSE UP
+			{ ch = 16, cc = 12, type = "cmd", command = "sim/none/none" }, # Center Hat Right | UNUSED
+			{ ch = 16, cc = 13, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim1_down" }, # SL 0 | Center Hat Down | PILOT YOKE OUTBOARD TRIM SWITCH NOSE DOWN
+			{ ch = 16, cc = 13, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim2_down" }, # SL 0 | Center Hat Down | PILOT YOKE INBOARD TRIM SWITCH NOSE DOWN
+			{ ch = 16, cc = 13, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim1_down" }, # SL 1 | Center Hat Down | COPILOT YOKE OUTBOARD TRIM SWITCH NOSE DOWN
+			{ ch = 16, cc = 13, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim2_down" }, # SL 1 | Center Hat Down | COPILOT YOKE INBOARD TRIM SWITCH NOSE DOWN
+			{ ch = 16, cc = 14, type = "cmd", command = "sim/none/none" }, # Center Hat Left | UNUSED
+			{ ch = 16, cc = 15, type = "cmd", command = "sim/none/none" }, # Center Hat Press | UNUSED
+			{ ch = 16, cc = 16, type = "cmd", command = "sim/none/none" }, # Right Hat Up | UNUSED
+			{ ch = 16, cc = 17, type = "cmd", command = "sim/view/glance_right" }, # Right Hat Right | GLANCE RIGHT
+			{ ch = 16, cc = 18, type = "cmd", command = "CL650/clock/chr" }, # Right Hat Down | CHRONO RESET
+			{ ch = 16, cc = 19, type = "cmd", command = "sim/view/glance_left" }, # Right Hat Left | GLANCE LEFT
+			{ ch = 16, cc = 20, sl = "0", type = "cmd", command = "CL650/contwheel/0/ap_disc" }, # SL 0 | Thumb Button (RED) | PILOT YOKE AP DISCO
+			{ ch = 16, cc = 20, sl = "1", type = "cmd", command = "CL650/contwheel/1/ap_disc" }, # SL 0 | Thumb Button (RED) | COPILOT YOKE AP DISCO
+			{ ch = 16, cc = 21, type = "cmd", command = "CL650/pedestal/test/lamp_test_up" }, # Thumb Hat Up | LAMP TEST CIRCUIT 1
+			{ ch = 16, cc = 22, type = "cmd", command = "sim/none/none" }, # Thumb Hat Right
+			{ ch = 16, cc = 23, type = "cmd", command = "CL650/pedestal/test/lamp_test_down" }, # Thumb Hat Down | LAMP TEST CIRCUIT 2
+			{ ch = 16, cc = 24, type = "cmd", command = "sim/none/none" }, # Thumb Hat Left
+			{ ch = 16, cc = 25, type = "cmd", command = "CL650/pedestal/test/sps_test_G_switch" }, # Thumb Hat Press | SPS TEST G-SWITCH
+	#-------------------------------------------------------------------------------
+	#	END VKB Gunfighter Premium Space Combat Grip
+	#-------------------------------------------------------------------------------
+	#-------------------------------------------------------------------------------
+	#	Honeycomb Bravo
+	#-------------------------------------------------------------------------------
+			{ ch = 16, cc = 26, type = "cmd", command = "sim/flight_controls/landing_gear_up" }, # Gear Lever - Up
+			{ ch = 16, cc = 27, type = "cmd", command = "sim/flight_controls/landing_gear_down" }, # Gear Lever - Down
+			{ ch = 16, cc = 28, type = "cmd", command = "sim/none/none" }, # Trim Wheel - Forward | UNUSED
+			{ ch = 16, cc = 29, type = "cmd", command = "sim/none/none" }, # Trim Wheel - Backward | UNUSED
+			{ ch = 16, cc = 30, type = "cmd", command = "sim/none/none" }, # Axis 1 - Button | UNUSED
+			{ ch = 16, cc = 31, type = "cmd", command = "sim/none/none" }, # Axis 1 - Detent | UNUSED
+			{ ch = 16, cc = 32, type = "cmd", command = "sim/none/none" }, # Axis 2 - Button | !SHARED WITH AXIS 1 AND REVERSER! | UNUSED
+			{ ch = 16, cc = 33, type = "cmd", command = "sim/none/none" }, # Axis 2 - Detent | UNUSED
+			{ ch = 16, cc = 34, type = "cmd", command = "sim/none/none" }, # Axis 2 - Reverser !! DOES NOT ACTUALLY EXIST, ON BOEING LEVERS THIS IS THE BUTTON INPUT, ON AIRBUS LEVERS IT DOES NOT WORK	| UNUSED
+			{ ch = 16, cc = 35, type = "pnp", command_push = "sim/none/none", command_pull = "CL650/pedestal/throttle/toga_L" }, # Axis 3 - Button | HOLD FOR TOGA
+			{ ch = 16, cc = 36, type = "cmd", command = "sim/none/none" }, # Axis 3 - Detent | FUEL OFF - UNUSED UNTIL I GET PRODESKSIM LEVERS
+			{ ch = 16, cc = 37, type = "cmd", command = "sim/engines/thrust_reverse_hold_1" }, # Axis 3 - Reverser
+			{ ch = 16, cc = 38, type = "cmd", command = "CL650/pedestal/throttle/at_disc_L" }, # Axis 4 - Button | DISCONNECT AUTOTHROTTLE
+			{ ch = 16, cc = 39, type = "cmd", command = "sim/none/none" }, # Axis 4 - Detent | FUEL OFF - UNUSED UNTIL I GET PRODESKSIM LEVERS
+			{ ch = 16, cc = 40, type = "cmd", command = "sim/engines/thrust_reverse_hold_2" }, # Axis 4 - Reverser
+			{ ch = 16, cc = 41, type = "cmd", command = "sim/none/none" }, # Axis 5 - Button | UNUSED
+			{ ch = 16, cc = 42, type = "cmd", command = "sim/none/none" }, # Axis 5 - Detent | UNUSED
+			{ ch = 16, cc = 43, type = "cmd", command = "sim/none/none" }, # Axis 5 - Reverser !! DOES NOT ACTUALLY EXIST, ON BOEING LEVERS THIS IS THE BUTTON INPUT, ON AIRBUS LEVERS IT DOES NOT WORK | UNUSED
+			{ ch = 16, cc = 44, type = "cmd", command = "sim/none/none" }, # Axis 6 - Button !! AXIS 6 HAS NO BUTTON SUPPORT | UNUSED, ONLY HERE BECAUSE I ALREADY ALLOCATED THE CC
+			{ ch = 16, cc = 45, type = "cmd", command = "sim/none/none" }, # Axis 6 - Detent | UNUSED
+			{ ch = 16, cc = 46, type = "cmd", command = "sim/flight_controls/flaps_up" }, # Flap Switch - Up
+			{ ch = 16, cc = 47, type = "cmd", command = "sim/flight_controls/flaps_down" }, # Flap Switch - Down
+			{ ch = 16, cc = 48, type = "cmd", command = "sim/none/none" }, # Toggle 1 - Up | UNUSED
+			{ ch = 16, cc = 49, type = "cmd", command = "sim/none/none" }, # Toggle 1 - Down | UNUSED
+			{ ch = 16, cc = 50, type = "cmd", command = "sim/none/none" }, # Toggle 2 - Up | UNUSED
+			{ ch = 16, cc = 51, type = "cmd", command = "sim/none/none" }, # Toggle 2 - Down | UNUSED
+			{ ch = 16, cc = 52, type = "cmd", command = "CL650/pedestal/throttle/shutoff_L_up" }, # Toggle 3 - Up | LEFT FUEL ON
+			{ ch = 16, cc = 53, type = "cmd", command = "CL650/pedestal/throttle/shutoff_L_down" }, # Toggle 3 - Down | LEFT FUEL OFF
+			{ ch = 16, cc = 54, type = "cmd", command = "sim/none/none" }, # Toggle 4 - Up | UNUSED
+			{ ch = 16, cc = 55, type = "cmd", command = "sim/none/none" }, # Toggle 4 - Down | UNUSED
+			{ ch = 16, cc = 56, type = "cmd", command = "CL650/pedestal/throttle/shutoff_L_up" }, # Toggle 5 - Up | RIGHT FUEL ON
+			{ ch = 16, cc = 57, type = "cmd", command = "CL650/pedestal/throttle/shutoff_R_down" }, # Toggle 5 - Down | RIGHT FUEL OFF
+			{ ch = 16, cc = 58, type = "cmd", command = "sim/none/none" }, # Toggle 6 - Up | UNUSED
+			{ ch = 16, cc = 59, type = "cmd", command = "sim/none/none" }, # Toggle 6 - Down | UNUSED
+			{ ch = 16, cc = 60, type = "cmd", command = "sim/none/none" }, # Toggle 7 - Up | UNUSED
+			{ ch = 16, cc = 61, type = "cmd", command = "sim/none/none" }, # Toggle 7 - Down | UNUSED
+			{ ch = 16, cc = 62, type = "cmd", command = "sim/none/none" }, # L Rotary - ALT | UNUSED
+			{ ch = 16, cc = 63, type = "cmd", command = "sim/none/none" }, # L Rotary - VS | UNUSED
+			{ ch = 16, cc = 64, type = "cmd", command = "sim/none/none" }, # L Rotary - HDG | UNUSED
+			{ ch = 16, cc = 65, type = "cmd", command = "sim/none/none" }, # L Rotary - CRS | UNUSED
+			{ ch = 16, cc = 66, type = "cmd", command = "sim/none/none" }, # L Rotary - IAS | UNUSED
+			{ ch = 16, cc = 67, type = "cmd", command = "sim/none/none" }, # AP - HDG | UNUSED
+			{ ch = 16, cc = 68, type = "cmd", command = "sim/none/none" }, # AP - NAV | UNUSED
+			{ ch = 16, cc = 69, type = "cmd", command = "sim/none/none" }, # AP - APR | UNUSED
+			{ ch = 16, cc = 70, type = "cmd", command = "sim/none/none" }, # AP - REV | UNUSED
+			{ ch = 16, cc = 71, type = "cmd", command = "sim/none/none" }, # AP - ALT | UNUSED
+			{ ch = 16, cc = 72, type = "cmd", command = "sim/none/none" }, # AP - VS | UNUSED
+			{ ch = 16, cc = 73, type = "cmd", command = "sim/none/none" }, # AP - IAS | UNUSED
+			{ ch = 16, cc = 74, type = "cmd", command = "CL650/pedestal/reversion/eicas_down" }, # R Rotary - DECR
+			{ ch = 16, cc = 75, type = "cmd", command = "CL650/pedestal/reversion/eicas_up" }, # R Rotary - INCR
+			{ ch = 16, cc = 76, type = "cmd", command = "sim/none/none" }, # AP - AUTO PILOT | UNUSED
+	]
+	#-------------------------------------------------------------------------------
+	#	END Honeycomb Bravo
+	#-------------------------------------------------------------------------------
+#===============================================================================
+#	END Virtual devices
+#===============================================================================
+#===============================================================================
+#	Physical Devices
+#===============================================================================
+	#-------------------------------------------------------------------------------
+	#	Behringer X-Touch Mini number 1
+	#-------------------------------------------------------------------------------
+	[[device]]
+	name       = "Behringer X-Touch Mini"
+	include	   = "CL60_xtouch_1"
+	port_in    = 0
+	port_out   = 1
+	#-------------------------------------------------------------------------------
+	#	INPUT
+	#-------------------------------------------------------------------------------
+	mapping_in = [
+		# A | Slider | CC 0
+			{ ch = 11, cc = 0, type = "sld", command_up = "sim/none/none", command_down = "sim/none/none" }, # Unused in this profile
+		# A | Encoders | CC 1-8
+			{ ch = 11, cc = 1, type = "enc", command_up = "CL650/DCP/1/baro_up", command_down = "CL650/DCP/1/baro_down" },
+			{ ch = 11, cc = 2, type = "enc", command_up = "CL650/FCP/crs1_up", command_down = "CL650/FCP/crs1_down" },
+			{ ch = 11, cc = 3, type = "enc", command_up = "CL650/FCP/vs_pitch_up", command_down = "CL650/FCP/vs_pitch_down" },
+			{ ch = 11, cc = 4, type = "enc", command_up = "CL650/FCP/speed_up", command_down = "CL650/FCP/speed_down" },
+			{ ch = 11, cc = 5, type = "enc", command_up = "CL650/FCP/hdg_up", command_down = "CL650/FCP/hdg_down" },
+			{ ch = 11, cc = 6, type = "enc", command_up = "CL650/FCP/alt_up", command_down = "CL650/FCP/alt_down" },
+			{ ch = 11, cc = 7, type = "enc", command_up = "CL650/FCP/crs2_up", command_down = "CL650/FCP/crs2_down" },
+			{ ch = 11, cc = 8, type = "enc", command_up = "CL650/ISI/baro_up", command_down = "CL650/ISI/baro_down" },
+		# A | Encoder Buttons | CC 9-16
+			{ ch = 11, cc = 9, type = "cmd", command = "CL650/DCP/1/baro_push" },
+			{ ch = 11, cc = 10, type = "cmd", command = "CL650/FCP/crs1_push" },
+		 { ch = 11, cc = 11, type = "cmd", command = "sim/none/none" }, # Unused in this profile
+			{ ch = 11, cc = 12, type = "cmd", command = "CL650/FCP/ias_mach" },
+			{ ch = 11, cc = 13, type = "cmd", command = "CL650/FCP/hdg_sync" },
+			{ ch = 11, cc = 14, type = "cmd", command = "CL650/FCP/alt_cancel" },
+			{ ch = 11, cc = 15, type = "cmd", command = "CL650/FCP/crs2_push" },
+			{ ch = 11, cc = 16, type = "cmd", command = "CL650/ISI/std" },
+		# A | U | Buttons | CC 17-24
+			{ ch = 11, cc = 17, type = "pnp", command_push = "CL650/glareshield/ATS", command_pull = "CL650/glareshield/N2_SYNC"},
+			{ ch = 11, cc = 18, type = "cmd", command = "CL650/DCP/1/nav_src" },
+			{ ch = 11, cc = 19, type = "cmd", command = "CL650/FCP/vs_mode" },
+			{ ch = 11, cc = 20, type = "cmd", command = "CL650/FCP/flc_mode" },
+			{ ch = 11, cc = 21, type = "cmd", command = "CL650/FCP/hdg_mode" },
+			{ ch = 11, cc = 22, type = "cmd", command = "CL650/FCP/alt_mode" },
+			{ ch = 11, cc = 23, type = "cmd", command = "CL650/DCP/2/nav_src" },
+			{ ch = 11, cc = 24, type = "pnp", command_push = "CL650/FCP/ap_eng", command_pull = "CL650/FCP/xfr"},
+		# A | L | Buttons | CC 25-32
+			{ ch = 11, cc = 25, type = "cmd", command = "CL650/glareshield/master_warn_L" },
+			{ ch = 11, cc = 26, type = "cmd", command = "CL650/FCP/fd1" },
+			{ ch = 11, cc = 27, type = "cmd", command = "CL650/FCP/vnav_mode"},
+			{ ch = 11, cc = 28, type = "cmd", command = "CL650/FCP/appr_mode"},
+			{ ch = 11, cc = 29, type = "cmd", command = "CL650/FCP/nav_mode"},
+			{ ch = 11, cc = 30, type = "cmd", command = "CL650/FCP/bc_mode"},
+			{ ch = 11, cc = 31, type = "cmd", command = "CL650/FCP/fd2"},
+			{ ch = 11, cc = 32, type = "cmd", command = "CL650/glareshield/master_warn_R" },
+		# B | Slider | CC 50
+			{ ch = 11, cc = 50, type = "sld", command_up = "sim/none/none", command_down = "sim/none/none" }, # Unused in this profile
+		# As I own an Avionique Simulations DCP/CCP replica none of the following commands are needed, however
+		# they are retained in the config for posterity and potential use.
+		# B | SL 0 | Encoders | CC 51-58
+			{ ch = 11, cc = 51, sl = "0", type = "enc", command_up = "CL650/DCP/1/menu_adv_up", command_down = "CL650/DCP/1/menu_adv_down" },
+			{ ch = 11, cc = 52, sl = "0", type = "enc", command_up = "CL650/DCP/1/menu_data_up", command_down = "CL650/DCP/1/menu_data_down" },
+			{ ch = 11, cc = 53, sl = "0", type = "enc", command_up = "CL650/DCP/1/tilt_up", command_down = "CL650/DCP/1/tilt_down" },
+			{ ch = 11, cc = 54, sl = "0", type = "enc", command_up = "CL650/DCP/1/range_up", command_down = "CL650/DCP/1/range_down" },	
+			{ ch = 11, cc = 55, sl = "0", type = "enc", command_up = "CL650/CCP/1/menu_adv_up", command_down = "CL650/CCP/1/menu_adv_down" },
+			{ ch = 11, cc = 56, sl = "0", type = "enc", command_up = "CL650/CCP/1/menu_data_up", command_down = "CL650/CCP/1/menu_data_down" },
+			{ ch = 11, cc = 57, sl = "0", type = "enc", command_up = "CL650/CCP/1/radio_adv_up", command_down = "CL650/CCP/1/radio_adv_down" },
+			{ ch = 11, cc = 58, sl = "0", type = "enc", command_up = "CL650/CCP/1/radio_data_up", command_down = "CL650/CCP/1/radio_data_down" },
+		# B | SL 1 | Encoders | CC 51-58
+			{ ch = 11, cc = 51, sl = "1", type = "enc", command_up = "CL650/DCP/2/menu_adv_up", command_down = "CL650/DCP/2/menu_adv_down" },
+			{ ch = 11, cc = 52, sl = "1", type = "enc", command_up = "CL650/DCP/2/menu_data_up", command_down = "CL650/DCP/2/menu_data_down" },
+			{ ch = 11, cc = 53, sl = "1", type = "enc", command_up = "CL650/DCP/2/tilt_up", command_down = "CL650/DCP/2/tilt_down" },
+			{ ch = 11, cc = 54, sl = "1", type = "enc", command_up = "CL650/DCP/2/range_up", command_down = "CL650/DCP/2/range_down" },
+			{ ch = 11, cc = 55, sl = "1", type = "enc", command_up = "CL650/CCP/2/menu_adv_up", command_down = "CL650/CCP/2/menu_adv_down" },
+			{ ch = 11, cc = 56, sl = "1", type = "enc", command_up = "CL650/CCP/2/menu_data_up", command_down = "CL650/CCP/2/menu_data_down" },
+			{ ch = 11, cc = 57, sl = "1", type = "enc", command_up = "CL650/CCP/2/radio_adv_up", command_down = "CL650/CCP/2/radio_adv_down" },
+			{ ch = 11, cc = 58, sl = "1", type = "enc", command_up = "CL650/CCP/2/radio_data_up", command_down = "CL650/CCP/2/radio_data_down" },
+		# B | SL 0 | Encoder Buttons | CC 59-66
+			{ ch = 11, cc = 59, sl = "0", type = "cmd", command = "CL650/DCP/1/menu_push" },
+			{ ch = 11, cc = 60, sl = "0", type = "cmd", command = "CL650/DCP/1/menu_push" },
+			{ ch = 11, cc = 61, sl = "0", type = "cmd", command = "CL650/DCP/1/tilt_auto" },
+			{ ch = 11, cc = 62, sl = "0", type = "cmd", command = "CL650/DCP/1/tilt_auto" },
+			{ ch = 11, cc = 63, sl = "0", type = "cmd", command = "CL650/CCP/1/menu_push" },
+			{ ch = 11, cc = 64, sl = "0", type = "cmd", command = "CL650/CCP/1/menu_push" },
+			{ ch = 11, cc = 65, sl = "0", type = "cmd", command = "CL650/CCP/1/radio_push" },
+			{ ch = 11, cc = 66, sl = "0", type = "pnp", command_push = "CL650/CCP/1/radio_push", command_pull = "CL650/CCP/1/atc" },
+		# B | SL 1 | Encoder Buttons | CC 59-66
+			{ ch = 11, cc = 59, sl = "1", type = "cmd", command = "CL650/DCP/2/menu_push" },
+			{ ch = 11, cc = 60, sl = "1", type = "cmd", command = "CL650/DCP/2/menu_push" },
+			{ ch = 11, cc = 61, sl = "1", type = "cmd", command = "CL650/DCP/2/tilt_auto" },
+			{ ch = 11, cc = 62, sl = "1", type = "cmd", command = "CL650/DCP/2/tilt_auto" },
+			{ ch = 11, cc = 63, sl = "1", type = "cmd", command = "CL650/CCP/2/menu_push" },
+			{ ch = 11, cc = 64, sl = "1", type = "cmd", command = "CL650/CCP/2/menu_push" },
+			{ ch = 11, cc = 65, sl = "1", type = "cmd", command = "CL650/CCP/2/radio_push" },
+			{ ch = 11, cc = 66, sl = "1", type = "pnp", command_push = "CL650/CCP/2/radio_push", command_pull = "CL650/CCP/2/atc" },
+		# B | U | Buttons | SL 0 | CC 67-74
+			{ ch = 11, cc = 67, sl = "0", type = "cmd", command = "CL650/DCP/1/menu" },
+			{ ch = 11, cc = 68, sl = "0", type = "cmd", command = "CL650/DCP/1/esc" },
+			{ ch = 11, cc = 69, sl = "0", type = "cmd", command = "CL650/DCP/1/brg_src" },
+			{ ch = 11, cc = 70, sl = "0", type = "cmd", command = "CL650/DCP/1/refs" },
+			{ ch = 11, cc = 71, sl = "0", type = "cmd", command = "CL650/CCP/1/upr_menu" },
+			{ ch = 11, cc = 72, sl = "0", type = "cmd", command = "CL650/CCP/1/esc" },
+			{ ch = 11, cc = 73, sl = "0", type = "cmd", command = "CL650/CCP/1/chart" },
+			{ ch = 11, cc = 74, sl = "0", type = "pnp", command_push = "CL650/CCP/1/freq", command_pull = "CL650/CCP/1/radio" },
+		# B | U | Buttons | SL 1 | CC 67-74
+			{ ch = 11, cc = 67, sl = "1", type = "cmd", command = "CL650/DCP/2/menu" },
+			{ ch = 11, cc = 68, sl = "1", type = "cmd", command = "CL650/DCP/2/esc" },
+			{ ch = 11, cc = 69, sl = "1", type = "cmd", command = "CL650/DCP/2/brg_src" },
+			{ ch = 11, cc = 70, sl = "1", type = "cmd", command = "CL650/DCP/2/refs" },
+			{ ch = 11, cc = 71, sl = "1", type = "cmd", command = "CL650/CCP/2/upr_menu" },
+			{ ch = 11, cc = 72, sl = "1", type = "cmd", command = "CL650/CCP/2/esc" },
+			{ ch = 11, cc = 73, sl = "1", type = "cmd", command = "CL650/CCP/2/chart" },
+			{ ch = 11, cc = 74, sl = "1", type = "pnp", command_push = "CL650/CCP/2/freq", command_pull = "CL650/CCP/2/radio" },
+		# B | L | Buttons | SL 0 | CC 75-82
+			{ ch = 11, cc = 75, sl = "0", type = "cmd", command = "CL650/DCP/1/frmt" },
+			{ ch = 11, cc = 76, sl = "0", type = "cmd", command = "CL650/DCP/1/tfc" },
+			{ ch = 11, cc = 77, sl = "0", type = "cmd", command = "CL650/DCP/1/tr_wx" },
+			{ ch = 11, cc = 78, sl = "0", type = "cmd", command = "CL650/DCP/1/rdr_menu" },
+			{ ch = 11, cc = 79, sl = "0", type = "cmd", command = "CL650/CCP/1/lwr_menu" },
+			{ ch = 11, cc = 80, sl = "0", type = "cmd", command = "CL650/CCP/1/mem1" },
+			{ ch = 11, cc = 81, sl = "0", type = "cmd", command = "CL650/CCP/1/mem2" },
+			{ ch = 11, cc = 82, sl = "0", type = "cmd", command = "CL650/CCP/1/mem3" },
+		# B | L | Buttons | SL 1 | CC 75-82
+			{ ch = 11, cc = 75, sl = "1", type = "cmd", command = "CL650/DCP/2/frmt" },
+			{ ch = 11, cc = 76, sl = "1", type = "cmd", command = "CL650/DCP/2/tfc" },
+			{ ch = 11, cc = 77, sl = "1", type = "cmd", command = "CL650/DCP/2/tr_wx" },
+			{ ch = 11, cc = 78, sl = "1", type = "cmd", command = "CL650/DCP/2/rdr_menu" },
+			{ ch = 11, cc = 79, sl = "1", type = "cmd", command = "CL650/CCP/2/lwr_menu" },
+			{ ch = 11, cc = 80, sl = "1", type = "cmd", command = "CL650/CCP/2/mem1" },
+			{ ch = 11, cc = 81, sl = "1", type = "cmd", command = "CL650/CCP/2/mem2" },
+			{ ch = 11, cc = 82, sl = "1", type = "cmd", command = "CL650/CCP/2/mem3" },
+	]
+	#-------------------------------------------------------------------------------
+	#	END INPUT
+	#-------------------------------------------------------------------------------
+	#-------------------------------------------------------------------------------
+	#	OUTPUT
+	#-------------------------------------------------------------------------------
+	mapping_out = [
+		# A | U | Buttons | LED state | CC 17-24
+			{ ch = 11, cc = 17, type = "drf", dataref = ["CL650/lamps/glareshield/ats_L", "CL650/lamps/glareshield/ats_R"], value_off = "0" },
+			{ ch = 11, cc = 19, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/vs_1", "CL650/lamps/glareshield/FCP/vs_2"], value_off = "0" },
+			{ ch = 11, cc = 20, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/flc_1", "CL650/lamps/glareshield/FCP/flc_2"], value_off = "0" },
+			{ ch = 11, cc = 21, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/hdg_1", "CL650/lamps/glareshield/FCP/hdg_2"], value_off = "0" },
+			{ ch = 11, cc = 22, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/alt_1", "CL650/lamps/glareshield/FCP/alt_2"], value_off = "0" },
+			{ ch = 11, cc = 24, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/ap_eng_1", "CL650/lamps/glareshield/FCP/ap_eng_2"], value_off = "0" },
+		# A | L | Buttons | LED state | CC 25-32
+			{ ch = 11, cc = 25, type = "drf", dataref = ["CL650/lamps/glareshield/master_warn_L", "CL650/lamps/glareshield/master_caut_L"], value_off = "0" },
+			{ ch = 11, cc = 27, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/vnav_1", "CL650/lamps/glareshield/FCP/vnav_2"], value_off = "0" },
+			{ ch = 11, cc = 28, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/appr_1", "CL650/lamps/glareshield/FCP/appr_2"], value_off = "0" },
+			{ ch = 11, cc = 29, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/nav_1", "CL650/lamps/glareshield/FCP/nav_2"], value_off = "0" },
+			{ ch = 11, cc = 30, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/bc_1", "CL650/lamps/glareshield/FCP/bc_2"], value_off = "0" },
+			{ ch = 11, cc = 32, type = "drf", dataref = ["CL650/lamps/glareshield/master_warn_R", "CL650/lamps/glareshield/master_caut_R"], value_off = "0" },
+	]
+	#-------------------------------------------------------------------------------
+	#	END OUTPUT
+	#-------------------------------------------------------------------------------
+	#-------------------------------------------------------------------------------
+	#	END Behringer X-Touch Mini number 1
+	#-------------------------------------------------------------------------------
+#===============================================================================
+#	END Physical Devices
+#===============================================================================
