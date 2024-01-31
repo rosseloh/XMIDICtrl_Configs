@@ -16,8 +16,8 @@ name	= "Virtual device"
 	#	VKB Gunfighter Premium Space Combat Grip
 	#-------------------------------------------------------------------------------
 	mapping_in = [
-			{ ch = 16, cc = 0, type = "cmd", command = "CL650/contwheel/0/fd_sync" }, # SL 0 | Trigger half | PILOT YOKE FD SYNC
-			{ ch = 16, cc = 0, type = "cmd", command = "CL650/contwheel/1/fd_sync" }, # SL 1 | Trigger half | COPILOT YOKE FD SYNC
+			{ ch = 16, cc = 0, sl = "0", type = "cmd", command = "CL650/contwheel/0/fd_sync" }, # SL 0 | Trigger half | PILOT YOKE FD SYNC
+			{ ch = 16, cc = 0, sl = "1", type = "cmd", command = "CL650/contwheel/1/fd_sync" }, # SL 1 | Trigger half | COPILOT YOKE FD SYNC
 			{ ch = 16, cc = 1, type = "cmd", command = "sim/none/none" }, # Trigger full | UNUSED
 			{ ch = 16, cc = 2, sl = "0", type = "cmd", command = "CL650/contwheel/0/ic" }, # SL 0 | Upper Trigger Push | PILOT YOKE INTERCOM
 			{ ch = 16, cc = 3, sl = "0", type = "cmd", command = "CL650/contwheel/0/rt" }, # SL 0 |  Upper Trigger Pull | PILOT YOKE RADIO PTT
