@@ -1,0 +1,234 @@
+# Revised 1/31/24 rweseloh
+#
+#	Label format: Layer | <Upper/Lower> | <Sublayer> | Input Name | <CC range> | Description
+#	some of these are evident from the config code, some need further explanation, hence the brackets.
+#	Where appropriate, labels are omitted for brevity (when obvious from the command, or when labeling a group)
+
+title   = "rosseloh's XMIDICtrl config for the Rotate MD-11"
+version = "1.00"
+sl_dataref = "xmidictrl/sublayer"	# "sublayer" for firing different cmds based on a dataref
+#===============================================================================
+#	Virtual devices
+#===============================================================================
+[virtual_device]
+name	= "Virtual device"
+	#-------------------------------------------------------------------------------
+	#	VKB Gunfighter Premium Space Combat Grip
+	#-------------------------------------------------------------------------------
+	mapping_in = [
+			{ ch = 16, cc = 0, type = "cmd", command = "sim/none/none" }, # Trigger half
+			{ ch = 16, cc = 1, type = "cmd", command = "sim/none/none" }, # Trigger full
+			{ ch = 16, cc = 2, type = "cmd", command = "sim/none/none" }, # Upper Trigger Push
+      { ch = 16, cc = 3, type = "cmd", command = "SET" }, # Upper Trigger Pull
+			{ ch = 16, cc = 4, type = "cmd", command = "sim/operation/screenshot" }, # Front Left Button | TAKE SCREENSHOT
+			{ ch = 16, cc = 5, type = "cmd", command = "sim/none/none" }, # Pinkie Button
+			{ ch = 16, cc = 6, type = "cmd", command = "sim/none/none" }, # Left Hat Up
+			{ ch = 16, cc = 7, type = "cmd", command = "sim/none/none" }, # Left Hat Right
+			{ ch = 16, cc = 8, type = "cmd", command = "sim/none/none"}, # Left Hat Down
+			{ ch = 16, cc = 9, type = "cmd", command = "sim/none/none" }, # Left Hat Left
+			{ ch = 16, cc = 10, type = "cmd", command = "sim/none/none" }, # Left Hat Press
+			{ ch = 16, cc = 11, type = "cmd", command = "sim/flight_controls/pitch_trim_up" }, # Center Hat up
+			{ ch = 16, cc = 12, type = "cmd", command = "sim/none/none" }, # Center Hat Right
+			{ ch = 16, cc = 13, type = "cmd", command = "sim/flight_controls/pitch_trim_down" }, # Center Hat Down
+			{ ch = 16, cc = 14, type = "cmd", command = "sim/none/none" }, # Center Hat Left
+			{ ch = 16, cc = 15, type = "cmd", command = "sim/none/none" }, # Center Hat Press
+			{ ch = 16, cc = 16, type = "cmd", command = "sim/none/none" }, # Right Hat Up
+			{ ch = 16, cc = 17, type = "cmd", command = "sim/view/glance_right" }, # Right Hat Right
+			{ ch = 16, cc = 18, type = "cmd", command = "sim/none/none" }, # Right Hat Down
+			{ ch = 16, cc = 19, type = "cmd", command = "sim/view/glance_left" }, # Right Hat Left
+			{ ch = 16, cc = 20, type = "cmd", command = "SET" }, # Thumb Button (RED)
+			{ ch = 16, cc = 21, type = "cmd", command = "sim/none/none" }, # Thumb Hat Up
+			{ ch = 16, cc = 22, type = "cmd", command = "sim/none/none" }, # Thumb Hat Right
+			{ ch = 16, cc = 23, type = "cmd", command = "sim/none/none" }, # Thumb Hat Down
+			{ ch = 16, cc = 24, type = "cmd", command = "sim/none/none" }, # Thumb Hat Left
+			{ ch = 16, cc = 25, type = "cmd", command = "sim/none/none" }, # Thumb Hat Press
+	#-------------------------------------------------------------------------------
+	#	END VKB Gunfighter Premium Space Combat Grip
+	#-------------------------------------------------------------------------------
+	#-------------------------------------------------------------------------------
+	#	Honeycomb Bravo
+	#-------------------------------------------------------------------------------
+			{ ch = 16, cc = 26, type = "cmd", command = "sim/flight_controls/landing_gear_up" }, # Gear Lever - Up
+			{ ch = 16, cc = 27, type = "cmd", command = "sim/flight_controls/landing_gear_down" }, # Gear Lever - Down
+			{ ch = 16, cc = 28, type = "cmd", command = "sim/none/none" }, # Trim Wheel - Forward
+			{ ch = 16, cc = 29, type = "cmd", command = "sim/none/none" }, # Trim Wheel - Backward
+			{ ch = 16, cc = 30, type = "cmd", command = "sim/none/none" }, # Axis 1 - Button
+			{ ch = 16, cc = 31, type = "cmd", command = "sim/none/none" }, # Axis 1 - Detent
+			{ ch = 16, cc = 32, type = "cmd", command = "sim/none/none" }, # Axis 2 - Button | !SHARED WITH AXIS 1 AND REVERSER!
+			{ ch = 16, cc = 33, type = "cmd", command = "sim/none/none" }, # Axis 2 - Detent
+			{ ch = 16, cc = 34, type = "cmd", command = "sim/none/none" }, # Axis 2 - Reverser !! DOES NOT ACTUALLY EXIST, ON BOEING LEVERS THIS IS THE BUTTON INPUT, ON AIRBUS LEVERS IT DOES NOT WORK
+			{ ch = 16, cc = 35, type = "pnp", command_push = "sim/none/none", command_pull = "SET" }, # Axis 3 - Button | HOLD FOR TOGA
+			{ ch = 16, cc = 36, type = "cmd", command = "sim/none/none" }, # Axis 3 - Detent
+			{ ch = 16, cc = 37, type = "cmd", command = "sim/engines/thrust_reverse_hold_1" }, # Axis 3 - Reverser
+			{ ch = 16, cc = 38, type = "cmd", command = "sim/none/none" }, # Axis 4 - Button
+			{ ch = 16, cc = 39, type = "cmd", command = "sim/none/none" }, # Axis 4 - Detent
+			{ ch = 16, cc = 40, type = "cmd", command = "sim/engines/thrust_reverse_hold_2" }, # Axis 4 - Reverser
+			{ ch = 16, cc = 41, type = "cmd", command = "sim/none/none" }, # Axis 5 - Button
+			{ ch = 16, cc = 42, type = "cmd", command = "sim/none/none" }, # Axis 5 - Detent
+			{ ch = 16, cc = 43, type = "cmd", command = "sim/engines/thrust_reverse_hold_3" }, # Axis 5 - Reverser !! DOES NOT ACTUALLY EXIST, ON BOEING LEVERS THIS IS THE BUTTON INPUT, ON AIRBUS LEVERS IT DOES NOT WORK
+			{ ch = 16, cc = 44, type = "cmd", command = "sim/none/none" }, # Axis 6 - Button !! AXIS 6 HAS NO BUTTON SUPPORT, ONLY HERE BECAUSE I ALREADY ALLOCATED THE CC
+			{ ch = 16, cc = 45, type = "cmd", command = "sim/none/none" }, # Axis 6 - Detent
+			{ ch = 16, cc = 46, type = "cmd", command = "sim/flight_controls/flaps_up" }, # Flap Switch - Up
+			{ ch = 16, cc = 47, type = "cmd", command = "sim/flight_controls/flaps_down" }, # Flap Switch - Down
+			{ ch = 16, cc = 48, type = "cmd", command = "sim/none/none" }, # Toggle 1 - Up
+			{ ch = 16, cc = 49, type = "cmd", command = "sim/none/none" }, # Toggle 1 - Down
+			{ ch = 16, cc = 50, type = "cmd", command = "sim/none/none" }, # Toggle 2 - Up
+			{ ch = 16, cc = 51, type = "cmd", command = "sim/none/none" }, # Toggle 2 - Down
+			{ ch = 16, cc = 52, type = "cmd", command = "sim/none/none" }, # Toggle 3 - Up
+			{ ch = 16, cc = 53, type = "cmd", command = "sim/none/none" }, # Toggle 3 - Down
+			{ ch = 16, cc = 54, type = "cmd", command = "sim/none/none" }, # Toggle 4 - Up
+			{ ch = 16, cc = 55, type = "cmd", command = "sim/none/none" }, # Toggle 4 - Down
+			{ ch = 16, cc = 56, type = "cmd", command = "sim/none/none" }, # Toggle 5 - Up
+			{ ch = 16, cc = 57, type = "cmd", command = "sim/none/none" }, # Toggle 5 - Down
+			{ ch = 16, cc = 58, type = "cmd", command = "sim/none/none" }, # Toggle 6 - Up
+			{ ch = 16, cc = 59, type = "cmd", command = "sim/none/none" }, # Toggle 6 - Down
+			{ ch = 16, cc = 60, type = "cmd", command = "sim/none/none" }, # Toggle 7 - Up
+			{ ch = 16, cc = 61, type = "cmd", command = "sim/none/none" }, # Toggle 7 - Down
+			{ ch = 16, cc = 62, type = "cmd", command = "sim/none/none" }, # L Rotary - ALT
+			{ ch = 16, cc = 63, type = "cmd", command = "sim/none/none" }, # L Rotary - VS
+			{ ch = 16, cc = 64, type = "cmd", command = "sim/none/none" }, # L Rotary - HDG
+			{ ch = 16, cc = 65, type = "cmd", command = "sim/none/none" }, # L Rotary - CRS
+			{ ch = 16, cc = 66, type = "cmd", command = "sim/none/none" }, # L Rotary - IAS
+			{ ch = 16, cc = 67, type = "cmd", command = "sim/none/none" }, # AP - HDG
+			{ ch = 16, cc = 68, type = "cmd", command = "sim/none/none" }, # AP - NAV
+			{ ch = 16, cc = 69, type = "cmd", command = "sim/none/none" }, # AP - APR
+			{ ch = 16, cc = 70, type = "cmd", command = "sim/none/none" }, # AP - REV
+			{ ch = 16, cc = 71, type = "cmd", command = "sim/none/none" }, # AP - ALT
+			{ ch = 16, cc = 72, type = "cmd", command = "sim/none/none" }, # AP - VS
+			{ ch = 16, cc = 73, type = "cmd", command = "sim/none/none" }, # AP - IAS
+			{ ch = 16, cc = 74, type = "cmd", command = "sim/none/none" }, # R Rotary - DECR
+			{ ch = 16, cc = 75, type = "cmd", command = "sim/none/none" }, # R Rotary - INCR
+			{ ch = 16, cc = 76, type = "cmd", command = "sim/none/none" }, # AP - AUTO PILOT
+	]
+	#-------------------------------------------------------------------------------
+	#	END Honeycomb Bravo
+	#-------------------------------------------------------------------------------
+#===============================================================================
+#	END Virtual devices
+#===============================================================================
+#===============================================================================
+#	Physical Devices
+#===============================================================================
+	#-------------------------------------------------------------------------------
+	#	Behringer X-Touch Mini number 1
+	#-------------------------------------------------------------------------------
+	[[device]]
+	name       = "Behringer X-Touch Mini"
+	include	   = "CL60_xtouch_1"
+	port_in    = 0
+	port_out   = 1
+	#-------------------------------------------------------------------------------
+	#	INPUT
+	#-------------------------------------------------------------------------------
+	mapping_in = [
+		# A | Slider | CC 0
+			{ ch = 11, cc = 0, type = "sld", command_up = "sim/none/none", command_down = "sim/none/none" },
+		# A | Encoders | CC 1-8
+      { ch = 11, cc = 1,  type = "enc", command_up = "Rotate/aircraft/controls_c/baro_set_l_up", command_down = "Rotate/aircraft/controls_c/baro_set_l_dn" },
+      { ch = 11, cc = 2,  type = "enc", command_up = "Rotate/aircraft/controls_c/minim_alt_set_l_up", command_down = "Rotate/aircraft/controls_c/minim_alt_set_l_dn" },
+      { ch = 11, cc = 3,  type = "enc", command_up = "sim/none/none", command_down = "sim/none/none" },
+      { ch = 11, cc = 4,  type = "enc", command_up = "Rotate/aircraft/controls_c/fgs_spd_sel_up", command_down = "Rotate/aircraft/controls_c/fgs_spd_sel_dn" },
+      { ch = 11, cc = 5,  type = "enc", command_up = "Rotate/aircraft/controls_c/fgs_hdg_sel_up", command_down = "Rotate/aircraft/controls_c/fgs_hdg_sel_dn" },
+      { ch = 11, cc = 6,  type = "enc", command_up = "Rotate/aircraft/controls_c/fgs_alt_sel_up", command_down = "Rotate/aircraft/controls_c/fgs_alt_sel_dn" },
+      { ch = 11, cc = 7,  type = "enc", command_up = "Rotate/aircraft/controls_c/fgs_pitch_sel_up", command_down = "Rotate/aircraft/controls_c/fgs_pitch_sel_dn" },
+      { ch = 11, cc = 8,  type = "enc", label = "xpdr", dataref = "Rotate/aircraft/controls/atc_mode_sel", modifier_up = 1, modifier_down = -1, value_min = 0, value_max = 3 },
+		# A | Encoder Buttons | CC 9-16
+			{ ch = 11, cc = 9,  type = "pnp", command_push = "Rotate/aircraft/controls_c/baro_std_set_l", command_pull = "Rotate/aircraft/controls_c/baro_units_l" },
+      { ch = 11, cc = 10, type = "pnp", command_push = "Rotate/aircraft/controls_c/minim_reset_l", dataref_pull = "Rotate/aircraft/controls/minim_ra_baro_l", values_pull = ["0", "1"] },
+      { ch = 11, cc = 11, type = "cmd", command = "sim/none/none" },
+      { ch = 11, cc = 12, type = "pnp", command_push = "Rotate/aircraft/controls_c/fgs_spd_sel_mode_up", command_pull = "Rotate/aircraft/controls_c/fgs_spd_sel_mode_dn" },
+      { ch = 11, cc = 13, type = "pnp", command_push = "Rotate/aircraft/controls_c/fgs_hdg_mode_sel_up", command_pull = "Rotate/aircraft/controls_c/fgs_hdg_mode_sel_dn" },
+      { ch = 11, cc = 14, type = "pnp", command_push = "Rotate/aircraft/controls_c/fgs_alt_mode_sel_up", command_pull = "Rotate/aircraft/controls_c/fgs_alt_mode_sel_dn" },
+      { ch = 11, cc = 15, type = "cmd", command = "Rotate/aircraft/controls_c/fgs_vs_fpa" }
+      { ch = 11, cc = 16, type = "cmd", command = "sim/none/none" },
+		# A | U | Buttons | CC 17-24
+			{ ch = 11, cc = 17, type = "cmd", command = "Rotate/aircraft/controls_c/master_warning_l" },
+      { ch = 11, cc = 18, type = "cmd", command = "Rotate/aircraft/controls_c/master_caution_l" },
+      { ch = 11, cc = 19, type = "cmd", command = "Rotate/aircraft/controls_c/fgs_ias_mach" },
+      { ch = 11, cc = 20, type = "cmd", command = "Rotate/aircraft/controls_c/fgs_hdg_trk" },
+      { ch = 11, cc = 21, type = "cmd", command = "Rotate/aircraft/controls_c/fgs_appr_land" },
+      { ch = 11, cc = 22, type = "cmd", command = "Rotate/aircraft/controls_c/fgs_ft_m" },
+      { ch = 11, cc = 23, type = "cmd", command = "Rotate/aircraft/controls_c/mag_tru_l" },
+      { ch = 11, cc = 24, type = "cmd", command = "Rotate/aircraft/controls_c/eis_range_incr_l" },
+		# A | L | Buttons | CC 25-32
+			{ ch = 11, cc = 25, type = "cmd", command = "Rotate/aircraft/controls_c/below_gs_ibhibit_l" },
+      { ch = 11, cc = 26, type = "cmd", command = "sim/none/none" },
+      { ch = 11, cc = 27, type = "cmd", command = "Rotate/aircraft/controls_c/fgs_fms_spd" },
+      { ch = 11, cc = 28, type = "cmd", command = "Rotate/aircraft/controls_c/fgs_nav" },
+      { ch = 11, cc = 29, type = "cmd", command = "Rotate/aircraft/controls_c/fgs_autoflight" },
+      { ch = 11, cc = 30, type = "cmd", command = "Rotate/aircraft/controls_c/fgs_prof" },
+      { ch = 11, cc = 31, type = "cmd", command = "Rotate/aircraft/controls_c/eis_mode_tcas_l" },
+      { ch = 11, cc = 32, type = "cmd", command = "Rotate/aircraft/controls_c/eis_range_decr_l" },
+		# B | Slider | CC 50
+			{ ch = 11, cc = 50, type = "sld", command_up = "sim/none/none", command_down = "sim/none/none" },
+		# B | Encoders | CC 51-58
+			{ ch = 11, cc = 51, type = "enc", command_up = "Rotate/aircraft/controls_c/stby_baro_set_up", command_down = "Rotate/aircraft/controls_c/stby_baro_set_dn" },
+      { ch = 11, cc = 52, type = "enc", command_up = "Rotate/aircraft/controls_c/minim_alt_set_r_up", command_down = "Rotate/aircraft/controls_c/minim_alt_set_r_dn" },
+      { ch = 11, cc = 53, type = "enc", command_up = "sim/none/none", command_down = "sim/none/none" },
+      { ch = 11, cc = 54, sl = "0", type = "enc", command_up = "Rotate/aircraft/controls_c/fgs_panel_lts_up", command_down = "Rotate/aircraft/controls_c/fgs_panel_lts_dn" },
+      { ch = 11, cc = 54, sl = "1", type = "enc", command_up = "Rotate/aircraft/controls_c/fgs_flood_lts_up", command_down = "Rotate/aircraft/controls_c/fgs_flood_lts_dn" },
+      { ch = 11, cc = 55, type = "enc", command_up = "Rotate/aircraft/controls_c/fgs_bank_lim_sel_up", command_down = "Rotate/aircraft/controls_c/fgs_bank_lim_sel_dn" },
+      { ch = 11, cc = 56, sl = "0", type = "enc", command_up = "Rotate/aircraft/controls_c/ovhd_panel_lts_up", command_down = "Rotate/aircraft/controls_c/ovhd_panel_lts_dn" },
+      { ch = 11, cc = 56, sl = "1", type = "enc", command_up = "Rotate/aircraft/controls_c/ovhd_flood_lts_up", command_down = "Rotate/aircraft/controls_c/ovhd_flood_lts_dn" },
+      { ch = 11, cc = 57, sl = "0", type = "enc", command_up = "Rotate/aircraft/controls_c/instr_panel_lts_up", command_down = "Rotate/aircraft/controls_c/instr_panel_lts_dn" },
+      { ch = 11, cc = 57, sl = "1", type = "enc", command_up = "Rotate/aircraft/controls_c/instr_flood_lts_up", command_down = "Rotate/aircraft/controls_c/instr_flood_lts_dn" },
+      { ch = 11, cc = 58, type = "enc", label = "auto_brake", dataref = "Rotate/aircraft/controls/auto_brake", modifier_up = 1, modifier_down = -1, value_min = -1, value_max = 3 },
+		# B | Encoder Buttons | CC 59-66
+			{ ch = 11, cc = 59, type = "cmd", command = "Rotate/aircraft/controls_c/stby_horizon_erect" },
+      { ch = 11, cc = 60, type = "pnp", command_push = "Rotate/aircraft/controls_c/minim_reset_r", dataref_pull = "Rotate/aircraft/controls/minim_ra_baro_r", values_pull = ["0", "1"] },
+      { ch = 11, cc = 61, type = "cmd", dataref = "sim/none/none" },
+      { ch = 11, cc = 62, type = "cmd", command = "xmidictrl/toggle_sublayer" },
+      { ch = 11, cc = 63, type = "drf", dataref = "Rotate/aircraft/controls/fgs_bank_lim_sel", value_on = "0", value_off = "0" },
+      { ch = 11, cc = 64, type = "cmd", command = "xmidictrl/toggle_sublayer" },
+      { ch = 11, cc = 65, type = "cmd", command = "xmidictrl/toggle_sublayer" },
+      { ch = 11, cc = 66, type = "cmd", command = "sim/none/none" },
+		# B | U | Buttons | CC 67-74
+			{ ch = 11, cc = 67, type = "cmd", command = "Rotate/aircraft/controls_c/eis_mode_map_l" },
+      { ch = 11, cc = 68, type = "cmd", command = "Rotate/aircraft/controls_c/eis_mode_vor_l" },
+      { ch = 11, cc = 69, type = "cmd", command = "Rotate/aircraft/controls_c/syn_page_eng" },
+      { ch = 11, cc = 70, type = "cmd", command = "Rotate/aircraft/controls_c/eis_show_traffic_l" },
+      { ch = 11, cc = 71, type = "cmd", command = "Rotate/aircraft/controls_c/eis_show_data_l" },
+      { ch = 11, cc = 72, type = "cmd", command = "Rotate/aircraft/controls_c/syn_page_nd" },
+      { ch = 11, cc = 73, type = "cmd", command = "Rotate/aircraft/controls_c/syn_page_conseq" },
+      { ch = 11, cc = 74, type = "cmd", command = "Rotate/aircraft/controls_c/syn_page_status" },
+		# B | L | Buttons | CC 75-82
+			{ ch = 11, cc = 75, type = "cmd", command = "Rotate/aircraft/controls_c/eis_mode_plan_l" },
+      { ch = 11, cc = 76, type = "cmd", command = "Rotate/aircraft/controls_c/eis_mode_appr_l" },
+      { ch = 11, cc = 77, type = "cmd", command = "Rotate/aircraft/controls_c/syn_page_hyd" },
+      { ch = 11, cc = 78, type = "cmd", command = "Rotate/aircraft/controls_c/syn_page_elec" },
+      { ch = 11, cc = 79, type = "cmd", command = "Rotate/aircraft/controls_c/syn_page_air" },
+      { ch = 11, cc = 80, type = "cmd", command = "Rotate/aircraft/controls_c/syn_page_fuel" },
+      { ch = 11, cc = 81, type = "cmd", command = "Rotate/aircraft/controls_c/syn_page_config" },
+      { ch = 11, cc = 82, type = "cmd", command = "Rotate/aircraft/controls_c/syn_page_misc" }
+	]
+	#-------------------------------------------------------------------------------
+	#	END INPUT
+	#-------------------------------------------------------------------------------
+	#-------------------------------------------------------------------------------
+	#	OUTPUT
+	#-------------------------------------------------------------------------------
+	mapping_out = [
+		# A | U | Buttons | LED state | CC 17-24
+			{ ch = 11, cc = 17, type = "drf", dataref = ["CL650/lamps/glareshield/ats_L", "CL650/lamps/glareshield/ats_R"], value_off = "0" },
+			{ ch = 11, cc = 19, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/vs_1", "CL650/lamps/glareshield/FCP/vs_2"], value_off = "0" },
+			{ ch = 11, cc = 20, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/flc_1", "CL650/lamps/glareshield/FCP/flc_2"], value_off = "0" },
+			{ ch = 11, cc = 21, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/hdg_1", "CL650/lamps/glareshield/FCP/hdg_2"], value_off = "0" },
+			{ ch = 11, cc = 22, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/alt_1", "CL650/lamps/glareshield/FCP/alt_2"], value_off = "0" },
+			{ ch = 11, cc = 24, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/ap_eng_1", "CL650/lamps/glareshield/FCP/ap_eng_2"], value_off = "0" },
+		# A | L | Buttons | LED state | CC 25-32
+			{ ch = 11, cc = 25, type = "drf", dataref = ["CL650/lamps/glareshield/master_warn_L", "CL650/lamps/glareshield/master_caut_L"], value_off = "0" },
+			{ ch = 11, cc = 27, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/vnav_1", "CL650/lamps/glareshield/FCP/vnav_2"], value_off = "0" },
+			{ ch = 11, cc = 28, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/appr_1", "CL650/lamps/glareshield/FCP/appr_2"], value_off = "0" },
+			{ ch = 11, cc = 29, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/nav_1", "CL650/lamps/glareshield/FCP/nav_2"], value_off = "0" },
+			{ ch = 11, cc = 30, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/bc_1", "CL650/lamps/glareshield/FCP/bc_2"], value_off = "0" },
+			{ ch = 11, cc = 32, type = "drf", dataref = ["CL650/lamps/glareshield/master_warn_R", "CL650/lamps/glareshield/master_caut_R"], value_off = "0" },
+	]
+	#-------------------------------------------------------------------------------
+	#	END OUTPUT
+	#-------------------------------------------------------------------------------
+	#-------------------------------------------------------------------------------
+	#	END Behringer X-Touch Mini number 1
+	#-------------------------------------------------------------------------------
+#===============================================================================
+#	END Physical Devices
+#===============================================================================
