@@ -31,15 +31,15 @@ name	= "Virtual device"
 			{ ch = 16, cc = 8, type = "pnp", command_push = "CL650/checklist/check_item", command_pull = "CL650/checklist/skip_item" }, # Left Hat Down | CHECK/SKIP ITEM
 			{ ch = 16, cc = 9, type = "cmd", command = "CL650/checklist/prev_checklist" }, # Left Hat Left | PREVIOUS CHECKLIST
 			{ ch = 16, cc = 10, type = "cmd", command = "sim/none/none" }, # Left Hat Press | UNUSED
-			{ ch = 16, cc = 11, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim1_up" }, # SL 0 | Center Hat up | PILOT YOKE OUTBOARD TRIM SWITCH NOSE UP
-			{ ch = 16, cc = 11, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim2_up" }, # SL 0 | Center Hat up | PILOT YOKE INBOARD TRIM SWITCH NOSE UP
-			{ ch = 16, cc = 11, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim1_up" }, # SL 1 | Center Hat up | COPILOT YOKE OUTBOARD TRIM SWITCH NOSE UP
-			{ ch = 16, cc = 11, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim2_up" }, # SL 1 | Center Hat up | COPILOT YOKE INBOARD TRIM SWITCH NOSE UP
+			{ ch = 16, cc = 11, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim1_up" }, # SL 0 | Center Hat up | PILOT YOKE OUTBOARD TRIM SWITCH NOSE DOWN
+			{ ch = 16, cc = 11, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim2_up" }, # SL 0 | Center Hat up | PILOT YOKE INBOARD TRIM SWITCH NOSE DOWN
+			{ ch = 16, cc = 11, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim1_up" }, # SL 1 | Center Hat up | COPILOT YOKE OUTBOARD TRIM SWITCH NOSE DOWN
+			{ ch = 16, cc = 11, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim2_up" }, # SL 1 | Center Hat up | COPILOT YOKE INBOARD TRIM SWITCH NOSE DOWN
 			{ ch = 16, cc = 12, type = "cmd", command = "sim/none/none" }, # Center Hat Right | UNUSED
-			{ ch = 16, cc = 13, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim1_down" }, # SL 0 | Center Hat Down | PILOT YOKE OUTBOARD TRIM SWITCH NOSE DOWN
-			{ ch = 16, cc = 13, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim2_down" }, # SL 0 | Center Hat Down | PILOT YOKE INBOARD TRIM SWITCH NOSE DOWN
-			{ ch = 16, cc = 13, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim1_down" }, # SL 1 | Center Hat Down | COPILOT YOKE OUTBOARD TRIM SWITCH NOSE DOWN
-			{ ch = 16, cc = 13, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim2_down" }, # SL 1 | Center Hat Down | COPILOT YOKE INBOARD TRIM SWITCH NOSE DOWN
+			{ ch = 16, cc = 13, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim1_down" }, # SL 0 | Center Hat Down | PILOT YOKE OUTBOARD TRIM SWITCH NOSE UP
+			{ ch = 16, cc = 13, sl = "0", type = "cmd", command = "CL650/contwheel/0/trim2_down" }, # SL 0 | Center Hat Down | PILOT YOKE INBOARD TRIM SWITCH NOSE UP
+			{ ch = 16, cc = 13, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim1_down" }, # SL 1 | Center Hat Down | COPILOT YOKE OUTBOARD TRIM SWITCH NOSE UP
+			{ ch = 16, cc = 13, sl = "1", type = "cmd", command = "CL650/contwheel/1/trim2_down" }, # SL 1 | Center Hat Down | COPILOT YOKE INBOARD TRIM SWITCH NOSE UP
 			{ ch = 16, cc = 14, type = "cmd", command = "sim/none/none" }, # Center Hat Left | UNUSED
 			{ ch = 16, cc = 15, type = "cmd", command = "sim/none/none" }, # Center Hat Press | UNUSED
 			{ ch = 16, cc = 16, type = "cmd", command = "sim/none/none" }, # Right Hat Up | UNUSED
