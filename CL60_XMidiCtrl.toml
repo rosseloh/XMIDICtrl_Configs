@@ -4,7 +4,7 @@
 #	some of these are evident from the config code, some need further explanation, hence the brackets.
 #	Where appropriate, labels are omitted for brevity (when obvious from the command, or when labeling a group)
 
-title   = "rweseloh's XMIDICtrl config for the Hot Start Challenger 650"
+title   = "rosseloh's XMIDICtrl config for the Hot Start Challenger 650"
 version = "1.00"
 sl_dataref = "CL650/pilot_seat"	# "sublayer" for firing different cmds based on a dataref
 #===============================================================================
