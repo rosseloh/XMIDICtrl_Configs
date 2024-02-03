@@ -89,7 +89,7 @@ name	= "Virtual device"
 			{ ch = 16, cc = 53, type = "cmd", command = "CL650/pedestal/throttle/shutoff_L_down" }, # Toggle 3 - Down | LEFT FUEL OFF
 			{ ch = 16, cc = 54, type = "cmd", command = "sim/none/none" }, # Toggle 4 - Up | UNUSED
 			{ ch = 16, cc = 55, type = "cmd", command = "sim/none/none" }, # Toggle 4 - Down | UNUSED
-			{ ch = 16, cc = 56, type = "cmd", command = "CL650/pedestal/throttle/shutoff_L_up" }, # Toggle 5 - Up | RIGHT FUEL ON
+			{ ch = 16, cc = 56, type = "cmd", command = "CL650/pedestal/throttle/shutoff_R_up" }, # Toggle 5 - Up | RIGHT FUEL ON
 			{ ch = 16, cc = 57, type = "cmd", command = "CL650/pedestal/throttle/shutoff_R_down" }, # Toggle 5 - Down | RIGHT FUEL OFF
 			{ ch = 16, cc = 58, type = "cmd", command = "sim/none/none" }, # Toggle 6 - Up | UNUSED
 			{ ch = 16, cc = 59, type = "cmd", command = "sim/none/none" }, # Toggle 6 - Down | UNUSED
